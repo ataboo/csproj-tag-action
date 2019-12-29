@@ -1,6 +1,6 @@
 # action.yml
 name: 'CSProj Tag Action'
-description: 'Tag the current commit using the Version in a dotnet core project's .csproj file'
+description: 'Tag the current commit using the Version in a dotnet core .csproj file'
 outputs:
   version: # id of output
     description: 'The version tagged in the .csproj'
