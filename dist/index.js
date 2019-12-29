@@ -27101,7 +27101,7 @@ const glob = __webpack_require__(81);
     await octokit.git.createRef({
         owner: repo.owner,
         repo: repo.repo,
-        ref: ref,
+        ref: 'refs/'+ref,
         sha: context.sha,
     });
 

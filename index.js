@@ -42,7 +42,7 @@ const glob = require('glob-promise');
     await octokit.git.createRef({
         owner: repo.owner,
         repo: repo.repo,
-        ref: ref,
+        ref: 'refs/'+ref,
         sha: context.sha,
     });
 
