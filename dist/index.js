@@ -27082,11 +27082,26 @@ const glob = __webpack_require__(81);
     const octokit = new github.GitHub(githubToken);
     const context = github.context;
     const repo = context.repo;
+    const ref = "tags/v"+version;
+
+    await octokit.git.getRef({
+        owner: repo.owner,
+        repo: repo.repo,
+        ref: ref
+    }).then(_ => {
+        throw new Error("Tag already exists.");
+    }, err => {
+        if (err.name == 'HttpError' && err.status == 404) {
+            return;
+        }
+
+        throw err;
+    });
 
     await octokit.git.createRef({
         owner: repo.owner,
         repo: repo.repo,
-        ref: "refs/tags/v"+ version,
+        ref: ref,
         sha: context.sha,
     });
 
