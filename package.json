@@ -1,0 +1,39 @@
+{
+  "name": "csproj-tag-action",
+  "version": "1.0.0",
+  "description": "Tag the current commit with the version found in a dotnet core project's .csproj Version tag.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "ncc build index.js"
+  },
+  "pre-commit": [
+    "test",
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ataboo/csproj-tag-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ataboo/csproj-tag-action/issues"
+  },
+  "homepage": "https://github.com/ataboo/csproj-tag-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "@actions/github": "^2.0.0",
+    "chai": "^4.2.0",
+    "glob-promise": "^3.4.0",
+    "xml-query": "^1.5.0",
+    "xml-reader": "^2.4.3",
+    "xml2js": "^0.4.23",
+    "xml2js-xpath": "^0.11.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "pre-commit": "^1.2.2"
+  }
+}

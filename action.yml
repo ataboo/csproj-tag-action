@@ -1,9 +1,14 @@
 # action.yml
 name: 'CSProj Tag Action'
 description: 'Tag the current commit using the Version in a dotnet core .csproj file'
+inputs:
+  token:
+    description: 'A Github Token'
+  csprojfile:
+    description: 'Path to the .csproj file (optional)'
 outputs:
-  version: # id of output
+  version:
     description: 'The version tagged in the .csproj'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'node12'
+  main: 'dist/index.js'
